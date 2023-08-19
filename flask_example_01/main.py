@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, redirect
 
 app = Flask(__name__)
 
@@ -19,7 +19,7 @@ def teste():
 def hello(nome="nao veio falor"):
     return "<h2> Hello {}</h2>".format(nome)
 
-# 
+# url dinamica
 @app.route("/user")
 @app.route("/user/<int:userId>")
 def user(userId = 0):
@@ -27,6 +27,15 @@ def user(userId = 0):
         return "<h1> Usuário não informado</h1>"
     else:
         return "<h1> Usuário: {}</h1>".format(userId)
+
+@app.route("/google")
+def direct_example():
+    return redirect("http://google.com")
+
+
+@app.route("/redirect/hello")
+def direct_example():
+    return redirect("/hello")
 
 @app.route("/debug")
 def debug():

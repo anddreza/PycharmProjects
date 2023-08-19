@@ -16,8 +16,17 @@ def teste():
 @app.route("/hello")
 @app.route("/hello")
 @app.route("/hello/<nome>")
-def hello(nome):
+def hello(nome="nao veio falor"):
     return "<h2> Hello {}</h2>".format(nome)
+
+# 
+@app.route("/user")
+@app.route("/user/<int:userId>")
+def user(userId = 0):
+    if userId == 0:
+        return "<h1> Usuário não informado</h1>"
+    else:
+        return "<h1> Usuário: {}</h1>".format(userId)
 
 @app.route("/debug")
 def debug():

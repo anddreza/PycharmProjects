@@ -1,6 +1,6 @@
 from flask import Flask, redirect
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='public')
 
 # criar nosso index
 @app.route("/")

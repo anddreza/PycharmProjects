@@ -1,4 +1,5 @@
 from flask import Flask, request
+from json import dumps
 
 app = Flask(__name__, static_folder='public')
 
@@ -16,7 +17,13 @@ def add():
        data = request.form
        u2 = data['nome']
        s2 = data['senha']
-       return "ok - POST: %s"
+
+       #terceir forma
+       js = dumps(request.form)
+       return js
+
+
+
    elif request.method == "GET":
        return "ok - GET"
 

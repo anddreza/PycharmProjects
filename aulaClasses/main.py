@@ -5,6 +5,9 @@ if __name__ == '__main__':
     #user.nome = "Andreza"
     #user.idade = 27
 
+    user.nome = "Andreza"
+    user.__update = 20
+    
     user_two = Usuario(idade=32, nome="Fernanda")
 
     print("Nome" + user.nome + " , idade " + str(user.idade))

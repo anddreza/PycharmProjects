@@ -1,8 +1,4 @@
-class Usuario:
-    # Se quisesse já criar um objeto com o nome e idade
-    def __init__(self, nome, idade):
-        self.nome = nome
-        self.idade = idade
+from Objetos.Usuario import Usuario
 
 if __name__ == '__main__':
     user = Usuario("Andreza", 27)
@@ -14,3 +10,5 @@ if __name__ == '__main__':
     print("Nome" + user.nome + " , idade " + str(user.idade))
     print(f"Nome: {user.nome}, idade: {user.idade}")
 
+    user.boas_vindas()
+    user_two.boas_vindas()

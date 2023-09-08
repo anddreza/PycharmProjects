@@ -3,3 +3,6 @@ class Usuario:
     def __init__(self, nome, idade):
         self.nome = nome
         self.idade = idade
+
+    def boas_vindas(self):
+        print("Bem vindo " + self.nome)

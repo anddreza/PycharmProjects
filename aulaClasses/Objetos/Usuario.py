@@ -3,6 +3,16 @@ class Usuario:
     def __init__(self, nome, idade):
         self.nome = nome
         self.idade = idade
+        self.__update = 1
+
+    @property
+    def nome(self): # equivalente ao get
+        return self.nome
+
+    @nome.setter
+    def nome(self, nome):
+        self.nome = nome
+        self.__update += 1
 
     def boas_vindas(self):
         print("Bem vindo " + self.nome)

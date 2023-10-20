@@ -1,6 +1,21 @@
-##Retirado do site: https://panda.ime.usp.br/panda/static/pythonds_pt/05-OrdenacaoBusca/OQuickSort.html
+##Retirado do site:
+##https://panda.ime.usp.br/panda/static/pythonds_pt/05-OrdenacaoBusca/OQuickSort.html
+import random
+
 def quickSort(alist):
    quickSortHelper(alist,0,len(alist)-1)
+
+def geraNumero():
+    vet1 = []
+    print("\nAleatorio:\n")
+    #for i in range(10000)
+    for i in range(1,100):
+        #vet1.append(i)
+        vet1[i].append(random.randint(1, 10000))
+    print(vet1)
+    quickSortHelper(vet1, 0, len(vet1) - 1)
+    print(vet1)
+
 
 def quickSortHelper(alist,first,last):
    if first<last:
@@ -8,7 +23,6 @@ def quickSortHelper(alist,first,last):
        splitpoint = partition(alist,first,last)
        quickSortHelper(alist,first,splitpoint-1)
        quickSortHelper(alist,splitpoint+1,last)
-
 
 def partition(alist,first,last):
    pivotvalue = alist[first]
@@ -39,6 +53,6 @@ def partition(alist,first,last):
 
    return rightmark
 
-alist = [54,26,93,17,77,31,44,55,20]
-quickSort(alist)
-print(alist)
+##alist = {}
+#quickSort()
+##print(alist)

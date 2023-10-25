@@ -1,3 +1,5 @@
+import json
+
 from flask import Flask, request, render_template, flash, redirect, url_for, jsonify
 from flask_sqlalchemy import SQLAlchemy
 import time
@@ -19,25 +21,44 @@ class Pessoas(db.Model):
         self.telefone = telefone
         self.observacao = observacao
 
+    def to_dict(self):
+        return {
+        'nome':self.nome,
+        'email': self.email,
+        'telefone': self.telefone,
+        'observacao': self.observacao
+        }
+
+
     @staticmethod
     def populate_db():
         lista_pessoas = []
+        # Aqui estou criando 100 usuários
         for i in range(100):
             lista_pessoas.append(Pessoas(
-                nome='Rishkan',
-                email='New York',
+                nome='Usuário Teste',
+                email='teste@gmail.com',
                 telefone=i,
                 observacao='i'))
 
         db.session.add_all(lista_pessoas)
         db.session.commit()
 
-    @staticmethod
-    def toJSON():
+@staticmethod
+def toJSON():
         print(db.session.query(Pessoas).all())
         return db.session.query(Pessoas).all()
 
 
+@app.route('/')
+def show_all():
+    pessoas = Pessoas.query.all()
+    pessoas_to_dict = []
+    for e in pessoas:
+        pessoas_to_dict.append(e.to_dict())
+
+    aux = json.dumps(pessoas_to_dict)
+    return render_template('show_all.html', pessoas=aux)
 @app.route('/success/<tempo>')
 def success(tempo):
     print(jsonify(Pessoas.toJSON()))

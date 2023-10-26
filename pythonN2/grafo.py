@@ -12,9 +12,6 @@ def grafo():
                  "D": {"A": 2, "C": 1, "E": 7},
                  "E": {"B": 4, "D": 7}}
 
-    #graf_str = json.dumps(grafo, indent=4)
-
-    #grafo = json.loads(grafo_str)
     origem = 'A'
 
     # Chamando o algoritmo de Dijkstra para encontrar os caminhos mais curtos a partir de A

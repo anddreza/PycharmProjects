@@ -1,23 +1,23 @@
 ### Tecnologias utilizadas:
-Flask, Python, SQLite (foi alterado, pois iria ser utilizado MySQL)
+Flask, Python, SQLAlchemy (foi alterado, pois iria ser utilizado MySQL)
 
 
 ### QUESTÕES REQUERIDAS:
-* 1. Implementação do algoritmo de ordenação de vetores inteiros (códigos mais comentários). O vetor de inteiros será passado em um campo do tipo "textarea" e apresentar o vetor ordenado.
+1. Implementação do algoritmo de ordenação de vetores inteiros (códigos mais comentários). O vetor de inteiros será passado em um campo do tipo "textarea" e apresentar o vetor ordenado.
 a. Efetuar a tomada de tempo SOMENTE da função para ordenar os vetores. 
 b. Apresentar o tempo em milissegundos em tela. 
 
 Para responder essa aqui:
 index.html, main.py, sorting.py
 
-* 2. Implementação do CRUD para seu banco de dados (códigos mais comentários). Criar uma única tabela contendo os campos: id(int), nome(string), email(string), telefone(int), observação(string). Inserir 10 mil cadastros e criar uma consulta para retornar 10 mil registros da tabela.
+2. Implementação do CRUD para seu banco de dados (códigos mais comentários). Criar uma única tabela contendo os campos: id(int), nome(string), email(string), telefone(int), observação(string). Inserir 10 mil cadastros e criar uma consulta para retornar 10 mil registros da tabela.
 a. Efetuar a tomada de tempo SOMENTE da função para ordenar os vetores. 
 b. Apresentar o tempo em milissegundos em tela. 
 
 Para responder essa aqui:
 crud.py, show_all.html
 
-* 3. Implementação do algoritmo para encontrar o menor caminho em um grafo(códigos mais comentários).
+3. Implementação do algoritmo para encontrar o menor caminho em um grafo(códigos mais comentários).
 a. Efetuar a tomada de tempo SOMENTE da função para encontrar e criar o resultado.
 b. Apresentar o tempo em milissegundos em tela.
 

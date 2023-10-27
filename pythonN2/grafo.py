@@ -1,7 +1,6 @@
 from flask import Flask, request, render_template, redirect, url_for, json
 import sys
-import time, timeit
-import random
+import time
 
 app = Flask(__name__, template_folder='public')
 @app.route("/grafo")

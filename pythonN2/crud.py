@@ -4,10 +4,10 @@ from flask import Flask, request, render_template, flash, redirect, url_for, jso
 from flask_sqlalchemy import SQLAlchemy
 import time
 app = Flask(__name__, template_folder='public')
-##URI para caminho até o banco de dados, se fosse um BD mais robusto ele teria uma string de conexão 
+#URI para caminho até o banco de dados, se fosse um BD mais robusto ele teria uma string de conexão 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///storage.db' #conexão com o banco de dados
 db = SQLAlchemy(app)
-# desde que você tem as classes relacioandas ao banco, o ORM faz o processo de criar, recuperar e converter
+# desde que você tem as classes relacionandas ao banco, o ORM faz o processo de criar, recuperar e converter
 class Pessoas(db.Model):
     # definição dos tipos de dados do banco
     id = db.Column('id', db.Integer, primary_key=True, autoincrement=True)

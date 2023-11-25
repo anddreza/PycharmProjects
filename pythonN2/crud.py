@@ -36,7 +36,7 @@ class Pessoas(db.Model):
     def populate_db():
         lista_pessoas = []
         # Aqui estou criando 100 usuários, mas a ideia era ser 10k
-        for i in range(100):
+        for i in range(10000):
             lista_pessoas.append(Pessoas(
                 nome='Usuario Teste',
                 email='teste@gmail.com',

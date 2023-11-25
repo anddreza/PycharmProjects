@@ -53,6 +53,45 @@ def new_estudante():
     #deixamos a chamada do render template para o final, de forma ao final de uma execução de função, será garantida a chamda de uma tela
     return render_template('new.html')
 
+@app.route('/delete/<int:id>')
+def delete(id):
+    #criar um objeto a partir de registros no banco de dados
+    #buscando pelo campo id
+    estudante = Estudantes.query.get(id)
+
+    #deletamos o objeto estudante
+    db.session.delete(estudante)
+    #commita as alterações no banco de dados
+    db.session.commit()
+
+    #informa que deletou o usuário
+    flash('Usuario ' + estudante.nome + ', foi deletado!')
+    return redirect(url_for('show_all'))
+
+
+# update de estudante
+@app.route('/update/<int:id>', methods=['GET', 'POST'])
+def update_estudante(id):
+
+    estudante = Estudantes.query.get(id)
+
+    if request.method == 'POST':  # codigo do post para verificar se os campos da tela foram preenchidos
+        if not request.form['nome'] or not request.form['cidade'] or not request.form['email'] or not request.form['pin']:
+            flash('Preencha todos os campos')
+        else:
+            # criar o objeto com as informações da tela
+            estudante.nome = request.form['nome']
+            estudante.cidade = request.form['cidade']
+            estudante.email = request.form['email']
+            estudante.pin  = request.form['pin']
+
+            db.session.commit()
+        # mensagem informtiva de sucesso
+        flash("Usuário atualizado")
+        return redirect(url_for('show_all'))
+
+    return render_template('update.html', estudante = estudante)
+
 
 if __name__ == '__main__':
     app.app_context().push() #criar o contexto da aplicação

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+   <body>
+
+      <h3>Cadastro de usuários</h3>
+      <hr/>
+
+      {%- for category, message in get_flashed_messages(with_categories = true) %}
+         <div class = "alert alert-danger">
+            {{ message }}
+         </div>
+      {%- endfor %}
+
+      <form action = "{{ request.path }}" method ="post">
+         <label for="email">Email</label><br>
+         <input type="text" name="email" placeholder="Email"/><br>
+
+          <label for="nome">Nome</label><br>
+         <input type="text" name="nome" placeholder="Nome"/><br>
+
+          <label for="sobrenome">Sobrenome</label><br>
+         <input type="text" name="sobrenome" placeholder="Sobrenome"/><br>
+
+         <input type="submit" value="Submit"/>
+      </form>
+
+   </body>
+</html>
+

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+   <body>
+
+      <h3>Usuário editar</h3>
+      <hr/>
+
+      {%- for category, message in get_flashed_messages(with_categories = true) %}
+         <div class = "alert alert-danger">
+            {{ message }}
+         </div>
+      {%- endfor %}
+
+      <form action = "/update/{{ usuario[0] }}" class="container" method = "post">
+
+         <label for = "email">Email</label><br>
+         <input type = "text" name = "email" placeholder = "Email" value="{{ usuario[1] }}"/><br>
+
+          <label for = "nome">Nome</label><br>
+         <input type = "text" name = "nome" placeholder = "Nome" value="{{ usuario[2] }}"/><br>
+
+         <label for = "sobrenome">Sobrenome</label><br>
+         <input type = "text" name = "sobrenome" placeholder = "Sobrenome" value="{{ usuario[3] }}"/><br>
+
+         <input type = "submit" value = "Submit" />
+      </form>
+   </body>
+</html>

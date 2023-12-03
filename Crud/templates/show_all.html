@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang = "en">
+   <head></head>
+   <body>
+      <h3>
+         <a>Cadastro de usuário</a>
+      </h3>
+      <hr/>
+      {%- for mensagem in get_flashed_messages() %}
+         {{ mensagem }}
+      {%- endfor %}
+      <h3>Usuários (<a>Adicionar usuários</a>)</h3>
+      <table>
+         <thead>
+            <tr>
+               <th>ID</th>
+               <th>Email</th>
+               <th>Nome</th>
+               <th>Sobrenome</th>
+            </tr>
+         </thead>
+         <tbody>
+            {% for usuario in usuarios %}
+               <tr>
+                  <td>{{ usuario[0] }}</td>
+                  <td>{{ usuario[1] }}</td>
+                  <td>{{ usuario[2] }}</td>
+                   <td>{{ usuario[3] }}</td>
+                  <td>
+                     <a href="/update/{{usuario[0] }}">Editar</a>
+                     <a href="/delete/{{usuario[0] }}">Deletar</a>
+                  </td>
+               </tr>
+            {% endfor %}
+         </tbody>
+      </table>
+   </body>
+</html>

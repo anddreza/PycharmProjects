@@ -11,7 +11,7 @@ app = Flask(__name__, template_folder="templates")
 
 
 def add_text(email, nome, sobrenome):
-    cursor.execute("INSERT INTO usuarios(ID, email, nome, sobrenome, ativo, criado_em, alterado_em) "
+    cursor.execute("INSERT INTO usuarios(ID, email, nome, sobrenome, ativo, criado_em, alterado_em)"
                    "VALUES (DEFAULT, %s, %s, %s, DEFAULT, DEFAULT, DEFAULT)",
                    (email, nome, sobrenome))
     connection.commit()
@@ -33,7 +33,7 @@ def novousuario():
         return render_template('new.html')
 
 
-@app.route("/")
+@app.route("/usuarios")
 def show_all():
     resultvalue = cursor.execute("SELECT * FROM usuarios")
     if resultvalue > 0:

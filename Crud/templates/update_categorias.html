@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+   <body>
+
+      <h3>Categoria editar</h3>
+      <hr/>
+
+      {%- for category, message in get_flashed_messages(with_categories = true) %}
+         <div class = "alert alert-danger">
+            {{ message }}
+         </div>
+      {%- endfor %}
+
+      <form action = "/update/{{ categoria[0] }}" class="container" method = "post">
+
+          <label for = "nome">Nome</label><br>
+         <input type = "text" name = "nome" placeholder = "Nome" value="{{ categoria[1] }}"/><br>
+
+         <input type = "submit" value = "Submit" />
+      </form>
+   </body>
+</html>

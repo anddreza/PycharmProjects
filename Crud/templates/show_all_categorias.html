@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang = "en">
+   <head></head>
+   <body>
+      <h3>
+         <a>Cadastro de categorias</a>
+      </h3>
+      <hr/>
+      {%- for mensagem in get_flashed_messages() %}
+         {{ mensagem }}
+      {%- endfor %}
+      <h3>Categorias (<a>Adicionar categorias</a>)</h3>
+      <table>
+         <thead>
+            <tr>
+               <th>ID</th>
+               <th>Nome</th>
+               <th>id_categoria_pai</th>
+            </tr>
+         </thead>
+         <tbody>
+            {% for categoria in categorias %}
+               <tr>
+                  <td>{{ categoria[0] }}</td>
+                  <td>{{ categoria[1] }}</td>
+                  <td>{{ categoria[2] }}</td>
+                  <td>
+                     <a href="/update/{{categoria[0] }}">Editar</a>
+                     <a href="/delete/{{categoria[0] }}">Deletar</a>
+                  </td>
+               </tr>
+            {% endfor %}
+         </tbody>
+      </table>
+   </body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang = "en">
+   <head></head>
+   <body>
+      <h3>
+         <a>Cadastro de produtos</a>
+      </h3>
+      <hr/>
+      {%- for mensagem in get_flashed_messages() %}
+         {{ mensagem }}
+      {%- endfor %}
+      <h3>Produtos (<a>Adicionar produtos</a>)</h3>
+      <table>
+         <thead>
+            <tr>
+               <th>Id</th>
+               <th>Codigo de barras</th>
+               <th>Nome</th>
+               <th>Descrição</th>
+               <th>Id_status_produto</th>
+               <th>Preço Normal</th>
+               <th>Preço com Desconto</th>
+               <th>Quantidade</th>
+            </tr>
+         </thead>
+         <tbody>
+            {% for produto in produtos %}
+               <tr>
+                  <td>{{ produto[0] }}</td>
+                  <td>{{ produto[1] }}</td>
+                  <td>{{ produto[2] }}</td>
+                  <td>{{ produto[3] }}</td>
+                  <td>{{ produto[4] }}</td>
+                  <td>{{ produto[5] }}</td>
+                  <td>{{ produto[6] }}</td>
+                  <td>{{ produto[7] }}</td>
+                  <td>
+                     <a href="/update/{{produto[0] }}">Editar</a>
+                     <a href="/delete/{{produto[0] }}">Deletar</a>
+                  </td>
+               </tr>
+            {% endfor %}
+         </tbody>
+      </table>
+   </body>
+</html>

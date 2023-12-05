@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+   <body>
+      <h3>Cadastro de produtos</h3>
+      <hr/>
+      {%- for category, message in get_flashed_messages(with_categories = true) %}
+         <div class = "alert alert-danger">
+            {{ message }}
+         </div>
+      {%- endfor %}
+
+      <form action = "{{ request.path }}" method ="post">
+         <label for="Cod_barras">Codigo de barras</label><br>
+         <input type="text" name="Cod_barras" placeholder="Codigo de barras"/><br>
+
+          <label for="Nome">Nome</label><br>
+         <input type="text" name="Nome" placeholder="Nome"/><br>
+
+          <label for="Descricao">Descricao</label><br>
+         <input type="text" name="Descricao" placeholder="Descricao"/><br>
+
+
+          <label for="status">Status</label><br>
+          <select name="status_produto" class="Input">
+            {% for statu in status  %}
+            <option value="{{ statu[0] }}">{{ statu[1] }}</option>
+            {% endfor %}
+          </select><br>
+
+          <label for="Preco_normal">Preco_normal</label><br>
+         <input type="text" name="Preco_normal" placeholder="Preco_normal"/><br>
+
+          <label for="Preco_com_desconto">Preco_com_desconto</label><br>
+         <input type="text" name="Preco_com_desconto" placeholder="Preco_com_desconto"/><br>
+
+          <label for="Quantidade">Quantidade</label><br>
+         <input type="text" name="Quantidade" placeholder="Quantidade"/><br>
+
+         <input type="submit" value="Submit"/>
+      </form>
+   </body>
+</html>
+

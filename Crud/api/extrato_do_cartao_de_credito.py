@@ -22,7 +22,7 @@ customers = []
 @app.route('/extrato_cartao/<int:codigo>', methods=['GET'])
 def extrato_cartao(codigo):
     vetor = []
-    cursor.execute("SELECT * FROM transacao_cc WHERE codigo = %s", (codigo))
+    cursor.execute("SELECT * FROM transacao_cc WHERE Num_cc = %s", (codigo))
     extratos = cursor.fetchall()
     for extrato in extratos:
       vetor.append(Extrato(extrato[0], extrato[1], extrato[2], datetime.strftime(extrato[3], "%Y-%m-%d"), extrato[4], float(extrato[5]), extrato[6], extrato[7],

@@ -3,17 +3,16 @@
    <head></head>
    <body>
       <h3>
-         <a>Cadastro de usuário</a>
+         <a href = "{{ url_for('show_all') }}">CRUD</a>
       </h3>
       <hr/>
       {%- for mensagem in get_flashed_messages() %}
          {{ mensagem }}
       {%- endfor %}
-      <h3>Usuários (<a>Adicionar usuários</a>)</h3>
+      <h3>Usuario (<a href = "{{ url_for('novousuario') }}">Adicionar usuarios</a>)</h3>
       <table>
          <thead>
             <tr>
-               <th>ID</th>
                <th>Email</th>
                <th>Nome</th>
                <th>Sobrenome</th>
@@ -22,13 +21,13 @@
          <tbody>
             {% for usuario in usuarios %}
                <tr>
-                  <td>{{ usuario[0] }}</td>
                   <td>{{ usuario[1] }}</td>
                   <td>{{ usuario[2] }}</td>
-                   <td>{{ usuario[3] }}</td>
+                  <td>{{ usuario[3] }}</td>
+                  <td>{{ usuario[4] }}</td>
                   <td>
-                     <a href="/update/{{usuario[0] }}">Editar</a>
-                     <a href="/delete/{{usuario[0] }}">Deletar</a>
+                     <a href="/update/{{usuario.id}}">Editar</a>
+                     <a href="/delete/{{usuario.id}}">Deletar</a>
                   </td>
                </tr>
             {% endfor %}

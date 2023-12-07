@@ -28,7 +28,7 @@ VALUES ('2', '1011', 1, '2023-12-02', 'Mastercard', 50, '5122030003177580', 'Sim
 INSERT INTO transacao_cc (Id, Codigo, Id_pedido, Data_transacao, Operador, Valor, Num_cc, Resposta) 
 VALUES ('3', '1011', 1, '2023-12-02', 'Mastercard', 18, '5122030003177580', 'Sim');
 ```
-# Instruções para executar listagem_deprodutos_por_tag.py
+# Instruções para executar listagem_de_produtos_por_tag.py
 1. SELECT * from tags;
 2. 
 ```
@@ -70,3 +70,28 @@ INNER JOIN produtos_tags
 ON produtos.Id = produtos_tags.Id_produto 
 INNER JOIN tags 
 ON tags.Id = produtos_tags.Id_tag 
+```
+
+# Instruções para executar compras_do_usuario.py
+1. SELECT * FROM usuarios;
+2. SELECT * from sessoes;
+3. SELECT * from pedidos;
+4. 
+```
+INSERT INTO pedidos(Id, Data_pedido, Total, Id_cupom, Id_sessao, Id_usuario)
+VALUES(2, '2023-12-07', 100, NULL, 3, 12)
+
+INSERT INTO pedidos(Id, Data_pedido, Total, Id_cupom, Id_sessao, Id_usuario)
+VALUES(3, '2023-12-07', 100, NULL, 3, 12)
+
+INSERT INTO pedidos(Id, Data_pedido, Total, Id_cupom, Id_sessao, Id_usuario)
+VALUES(4, '2023-12-07', 100, NULL, 3, 12)
+```
+
+```
+SELECT pedidos.Id, usuarios.Nome
+FROM usuarios
+INNER JOIN pedidos 
+ON pedidos.Id_usuario = usuarios.Id
+WHERE usuarios.Id = '12'
+```

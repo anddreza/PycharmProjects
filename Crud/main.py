@@ -1,10 +1,10 @@
 from flask import Flask, request, redirect, url_for, flash, render_template
 import pymysql
 
-connection = pymysql.connect(host="127.0.0.1",
+connection = pymysql.connect(host="localhost",
                    user="root",
-                   password="Bosonhiggs99!",
-                   database="ecommerce")
+                   password="root",
+                   database="comercio")
 
 cursor = connection.cursor()
 app = Flask(__name__, template_folder="templates")
@@ -33,14 +33,15 @@ def novousuario():
         return render_template('new.html')
 
 
-@app.route("/usuarios", methods=['GET'])
+@app.route("/usuarios")
 def show_all():
     resultvalue = cursor.execute("SELECT * FROM usuarios")
-    if resultvalue >= 0:
+    if resultvalue > 0:
         usuarios = cursor.fetchall()
+        print(usuarios)
         return render_template('show_all.html', usuarios=usuarios)
     else:
-        return render_template('new.html')
+        return render_template('show_all.html')
 
 @app.route('/delete/<int:id>')
 def delete(id):

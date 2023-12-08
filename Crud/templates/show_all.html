@@ -9,7 +9,7 @@
       {%- for mensagem in get_flashed_messages() %}
          {{ mensagem }}
       {%- endfor %}
-      <h3>Usuários (<a>Adicionar usuários</a>)</h3>
+      <h3>Usuários (<a href = "{{ url_for('novousuario') }}">Adicionar usuário</a>)</h3>
       <table>
          <thead>
             <tr>

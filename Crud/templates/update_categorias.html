@@ -16,6 +16,13 @@
           <label for = "nome">Nome</label><br>
          <input type = "text" name = "nome" placeholder = "Nome" value="{{ categoria[1] }}"/><br>
 
+         <label for="id_categoria_pai">Categoria Pai</label><br>
+          <select name="id_categoria_pai" class="Input"  value="{{ categoria[2] }}>
+            {% for categoria in categorias  %}
+            <option value="{{ categoria[0] }}">{{ categoria[1] }}</option>
+            {% endfor %}
+          </select><br>
+
          <input type = "submit" value = "Submit" />
       </form>
    </body>

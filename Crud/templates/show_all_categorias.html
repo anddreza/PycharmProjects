@@ -9,7 +9,7 @@
       {%- for mensagem in get_flashed_messages() %}
          {{ mensagem }}
       {%- endfor %}
-      <h3>Categorias (<a>Adicionar categorias</a>)</h3>
+      <h3>Categorias (<a href = "{{ url_for('novacategoria') }}">Adicionar categorias</a>)</h3>
       <table>
          <thead>
             <tr>

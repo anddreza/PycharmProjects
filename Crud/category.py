@@ -9,10 +9,10 @@ connection = pymysql.connect(host="localhost",
 cursor = connection.cursor()
 app = Flask(__name__, template_folder="templates")
 
-def add_categorias(nome):
+def add_categorias(nome, id_categoria_pai):
     cursor.execute("INSERT INTO categorias(Id, nome, id_categoria_pai, criado_em, alterado_em)"
-                   "VALUES (DEFAULT, %s, DEFAULT, DEFAULT, DEFAULT)",
-                   (nome))
+                   "VALUES (DEFAULT, %s, %s, DEFAULT, DEFAULT)",
+                   (nome, id_categoria_pai))
     connection.commit()
     return 1
 
@@ -23,10 +23,14 @@ def novacategoria():
             flash('Preencha todos os campos')
         else:
             nome = request.form['nome']
-            add_categorias(nome)
+            id_categoria_pai = request.form['id_categoria_pai']
+            add_categorias(nome, id_categoria_pai)
+
             return redirect(url_for('show_all_categorias'))
     else:
-            return render_template('new_categorias.html')
+        cursor.execute("SELECT Id, Nome FROM categorias")  # Ativo = 1 , Inativo = 2
+        result = cursor.fetchall()
+        return render_template('new_categorias.html', categorias=result)
 
 @app.route("/select_categorias")
 def show_all_categorias():
@@ -51,14 +55,17 @@ def updatecategorias(id):
             flash('Preencha todos os campos')
         else:
             nome = request.form['nome']
-            cursor.execute("UPDATE usuarios SET nome = %s WHERE id = %s",
-                           (nome, id))
+            id_categoria_pai = request.form['id_categoria_pai']
+            cursor.execute("UPDATE categorias SET nome = %s, id_categoria_pai = %s  WHERE id = %s",
+                           (nome, id_categoria_pai, id))
             connection.commit()
             return redirect(url_for('show_all_categorias'))
     else:
         cursor.execute("SELECT * FROM categorias WHERE id = %s", (id))
         result = cursor.fetchone()
-        return render_template('update_categorias.html', categoria=result)
+        cursor.execute("SELECT Id, Nome FROM categorias")
+        resulta = cursor.fetchall()
+        return render_template('update_categorias.html', categoria=result, categorias=resulta)
 
 
 if __name__ == '__main__':

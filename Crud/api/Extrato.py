@@ -12,7 +12,6 @@ class Extrato:
         self.alterado_em = alterado_em
 
 
-
     def to_dict(self):
         return {"id": self.id, "codigo": self.codigo, "id_pedido": self.id_pedido, "data_transacao": self.data_transacao,
                 "operador": self.operador, "valor": self.valor, "num_cc": self.num_cc, "resposta": self.resposta,

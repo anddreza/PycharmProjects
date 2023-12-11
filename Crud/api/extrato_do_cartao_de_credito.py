@@ -24,6 +24,7 @@ def extrato_cartao(codigo):
     vetor = []
     cursor.execute("SELECT * FROM transacao_cc WHERE Num_cc = %s", (codigo))
     extratos = cursor.fetchall()
+    print(extratos)
     for extrato in extratos:
       vetor.append(Extrato(extrato[0], extrato[1], extrato[2], datetime.strftime(extrato[3], "%Y-%m-%d"), extrato[4], float(extrato[5]), extrato[6], extrato[7],
                            datetime.strftime(extrato[8], "%Y-%m-%d"), datetime.strftime(extrato[9], "%Y-%m-%d")).to_dict())

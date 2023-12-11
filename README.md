@@ -1,9 +1,13 @@
+<h1 align="center">
+<img src="python.png" width="100" height="100">
+</h1>
+
 ## Python 
 
 - Aqui será inserido as informações que foram aprendidas na matéria de Programação Server-Side; 
 - A linguagem usada será Python com o framework Flask. 
 
-## Aula 01
+## 📌 Aula 01
 
 - Programação Server-Side: o que é? quais as vantagens? Quais as desvantagens? Características da programação Server-Side? 
 
@@ -18,7 +22,7 @@ para um determinado cliente.
 sistemas online. Onde o cliente solicita um serviço ao servidor e o servidor
 devolve a resposta para o cliente.
 
-### Vantagens:
+#### 😀 Vantagens:
 
 • É possível ter uma camadas de segurança e privacidade mais robustas.
 • Velocidade e escalabilidade.
@@ -28,7 +32,7 @@ devolve a resposta para o cliente.
 • Processamento pesado, a manipulação de dados e a interação com bancos de dados
 normalmente ocorrem no servidor.
 
-### Desvantagens:
+#### 😔 Desvantagens:
 
 • Necessidade de um servidor.
 • Necessidade de uma conexão de rede
@@ -46,38 +50,42 @@ nuvem separada.
 banco de dados, servidor de mídia doméstica, servidor de impressão, servidor da
 web, entre outros.
 
-## Aula 2
+## 📌 Aula 2
 Programando já em Python, apresentando a linguagem. 
 
-## Aula 3
+## 📌 Aula 3
 Aprendendo sobre o Flask
 
 #### Métodos HTTP 
 
-• GET: <br>
-
-• Solicita a representação de um recurso para um servidor. Retornam apenas dados. Pode usar
+• GET: Solicita a representação de um recurso para um servidor. Retornam apenas dados. Pode usar
 paginação (fragmenta a resposta em páginas e lê página a página).
+ <br>
 
-• POST <br>
-
-• Submeter uma entidade a um recurso específico causando uma mudança de estado no recurso
+• POST : Submeter uma entidade a um recurso específico causando uma mudança de estado no recurso
 (Envia informações a um servidor, geralmente de formulários).
+<br>
 
-• PUT <br>
-
-• Substitui as atuais representações do recurso de destino pela carga de dados da requisição
+• PUT: Substitui as atuais representações do recurso de destino pela carga de dados da requisição
 (edita arquivos já existentes).
+<br>
 
-• DELETE <br>
+• DELETE: Remove um recurso específico.
+<br>
 
-• Remove um recurso específico.
+• PATCH: Utilizado para aplicar modificações parciais.
+<br>
 
-• PATCH <br>
-
-• Utilizado para aplicar modificações parciais.
-
-• HEAD <br>
-
-• Solicita uma resposta de forma idêntica ao GET, porém sem conter o corpo da resposta (retorna
+• HEAD: Solicita uma resposta de forma idêntica ao GET, porém sem conter o corpo da resposta (retorna
 apenas o cabeçalho da resposta).
+
+## 📌 Aula 4
+- CI/CD é a abreviação de Continuous Integration/Continuous Delivery, ou em português integração e entrega contínuas. É uma prática de desenvolvimento de software que utiliza builds e testes automatizados para tornar a integração de código mais eficiente.
+
+- Facilita a entrega de aplicações com mais frequência. Porém necessita de regras de automação nas etapas de desenvolvimento de apps.
+
+## 📌 Aula 7
+• API é a sigla em inglês para Application Programming Interface, ou interface de programação de aplicações.
+• APIs são conjuntos de regras, protocolos e ferramentas que permitem que
+diferentes aplicativos se comuniquem entre si.
+• Em outras palavras, as APIs são interfaces que permitem que dois softwares se integrem e se comuniquem de maneira padronizada e organizada.
